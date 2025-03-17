@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovation Consultations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-vector/flat-national-science-day-background_23-2149283127.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+        .consultant {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .consultant img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .consult-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .consult-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Innovation & Robotics Consultants</h2>
+
+        <!-- Consultant 1 -->
+        <div class="consultant">
+            <img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Pusheen_the_Cat.png" alt="Consultant 1">
+            <h3>Emelyo Perez</h3>
+            <p>Expert in prototype development with Arduino, game development, and web development.</p>
+            <button class="consult-button" onclick="goToPage('innovperson1.html')">Consult Now</button>
+        </div>
+
+        <!-- Consultant 2 -->
+        <div class="consultant">
+            <img src="https://via.placeholder.com/120" alt="Consultant 2">
+            <h3>Paul Timpog</h3>
+            <p>Pogit gwapo at matalino</p>
+            <button class="consult-button" onclick="goToPage('innovperson2.html')">Consult Now</button>
+        </div>
+
+        <!-- Consultant 3 -->
+        <div class="consultant">
+            <img src="https://via.placeholder.com/120" alt="Consultant 3">
+            <h3>Uwu</h3>
+            <p>chat gpt ng pinas</p>
+            <button class="consult-button" onclick="goToPage('innovperson3.html')">Consult Now</button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
