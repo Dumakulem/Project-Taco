@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovation Consultations</title>
+    <title>Consultations</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             background-position: center;
             background-attachment: fixed;
             text-align: center;
-            padding-top: 80px;
+            padding-top: 80px; /* Space for navbar */
             color: black;
         }
 
@@ -22,7 +22,7 @@
             justify-content: space-between;
             align-items: center;
             background: white;
-            padding: 15px 20px;
+            padding: 15px 30px;
             position: fixed;
             top: 0;
             left: 0;
@@ -32,21 +32,21 @@
         }
 
         .navbar img {
-            height: 40px;
+            height: 50px;
         }
 
         .nav-buttons {
             display: flex;
-            gap: 10px;
-            margin-right: 20px;
+            gap: 15px;
+            margin-right: 50px;
         }
 
         .nav-buttons button {
             background: none;
             color: black;
             border: none;
-            padding: 8px 12px;
-            font-size: 14px;
+            padding: 8px 12px; /* Smaller padding */
+            font-size: 14px; /* Smaller text */
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -74,8 +74,8 @@
         }
 
         .consultant img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 10px;
@@ -84,11 +84,11 @@
         .consult-button {
             display: block;
             width: 100%;
-            padding: 10px;
-            font-size: 14px;
+            padding: 12px;
+            font-size: 16px;
             color: black;
             background: white;
-            border: 1px solid black;
+            border: 2px solid black;
             border-radius: 5px;
             cursor: pointer;
             margin-top: 10px;
@@ -98,6 +98,12 @@
         .consult-button:hover {
             background: black;
             color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-buttons {
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -114,7 +120,7 @@
     </div>
 
     <div class="container">
-        <h2>Innovation & Robotics Researchers</h2>
+        <h2>Quantitative Researchers</h2>
 
         <!-- Consultant 1 -->
         <div class="consultant">

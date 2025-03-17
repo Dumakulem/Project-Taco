@@ -37,24 +37,33 @@
 
         .nav-buttons {
             display: flex;
-            gap: 15px;
-            margin-right: 50px; /* Moves buttons slightly to the right */
+            gap: 10px;
+            margin-right: 30px; /* Adjusted spacing */
         }
 
         .nav-buttons button {
-            background: white;
+            background: none;
             color: black;
-            border: 2px solid black;
-            padding: 10px 20px;
-            font-size: 16px;
+            border: none;
+            padding: 8px 12px; /* Smaller padding */
+            font-size: 14px; /* Smaller text */
             cursor: pointer;
-            border-radius: 5px;
             transition: all 0.3s ease;
         }
 
         .nav-buttons button:hover {
-            background: black;
-            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive navbar for mobile screens */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                gap: 5px; /* Less space between buttons */
+            }
+            .nav-buttons button {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
         }
 
         .container {
