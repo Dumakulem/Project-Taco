@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tapinac Research Consultation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-vector/flat-national-science-day-background_23-2149283127.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding-top: 80px;
+            color: black;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-right: 50px;
+        }
+
+        .nav-buttons button {
+            background: none;
+            color: black;
+            border: none;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-buttons button:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .category-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: black;
+            background: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .category-button:hover {
+            background: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <img src="https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/476489406_1316231752994808_1846865639538265862_n.png?stp=dst-png_s2048x2048&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGMu8ZFmZeHjo9bXoJWQETU8oYZtgEHDLDyhhm2AQcMsIXrjYh2Fn2A1tRQWuDI0kb2ukx7wVapZGIjLkayQmyc&_nc_ohc=bYQBJ_qPz3UQ7kNvgGwwzN4&_nc_oc=AdhCPmjW5KtX1tHcNHhAPFhu07tXcbCgXjRdZlLzADomFqrNSy4oHlMbr9OFwypOoR8&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&oh=03_Q7cD1wErZrBjpPWmTOFaIMp9ZFv2YQyoRekhc_ypO003ff5tPA&oe=6800EC88" alt="Logo"> <!-- Replace with your logo -->
+        <div class="nav-buttons">
+            <button onclick="goToPage('homepage.html')">Home</button>
+            <button onclick="goToPage('index.html')">Information</button>
+            <button onclick="goToPage('contact.html')">Contact Us</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Tapinac Research Consultation</h1>
+        <p>Choose the type of research for consultation</p>
+
+        <div class="category">
+            <img src="https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJkdWlub3xlbnwwfHwwfHx8MA%3D%3D" alt="Innovation/Robotics">
+            <button class="category-button" onclick="goToPage('innovation.html')">Innovation/Robotics</button>
+        </div>
+
+        <div class="category">
+            <img src="https://thumbs.dreamstime.com/b/qualitative-research-text-speech-bubble-red-background-351599067.jpg" alt="Qualitative Research">
+            <button class="category-button" onclick="goToPage('qualitative.html')">Qualitative Research</button>
+        </div>
+
+        <div class="category">
+            <img src="https://media.licdn.com/dms/image/v2/C5612AQGlHwf8lpVqAg/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1598119451083?e=2147483647&v=beta&t=rixyEfULJwMlCEci0GYaq1PImKPYIy247cXa8K52Ziw" alt="Quantitative Research">
+            <button class="category-button" onclick="goToPage('quantitative.html')">Quantitative Research</button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+
+</body>
+</html>
