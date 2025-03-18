@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-vector/flat-national-science-day-background_23-2149283127.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            padding-top: 80px;
+            color: black;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 15px 30px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar img {
+            height: 50px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin-right: 50px;
+        }
+
+        .nav-buttons button {
+            background: none;
+            color: black;
+            border: none;
+            padding: 8px 1px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+
+        .nav-buttons button:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+
+        .consultant {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .consultant img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .consult-button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: black;
+            background: white;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .consult-button:hover {
+            background: black;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+        }
+
+        .modal.active {
+            display: block;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .modal button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .modal .confirm {
+            background: green;
+            color: white;
+        }
+
+        .modal .cancel {
+            background: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <img src="https://scontent.fmnl25-4.fna.fbcdn.net/v/t1.15752-9/476489406_1316231752994808_1846865639538265862_n.png?stp=dst-png_s2048x2048&_nc_cat=100&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGMu8ZFmZeHjo9bXoJWQETU8oYZtgEHDLDyhhm2AQcMsIXrjYh2Fn2A1tRQWuDI0kb2ukx7wVapZGIjLkayQmyc&_nc_ohc=bYQBJ_qPz3UQ7kNvgGwwzN4&_nc_oc=AdhCPmjW5KtX1tHcNHhAPFhu07tXcbCgXjRdZlLzADomFqrNSy4oHlMbr9OFwypOoR8&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&oh=03_Q7cD1wErZrBjpPWmTOFaIMp9ZFv2YQyoRekhc_ypO003ff5tPA&oe=6800EC88" alt="Logo">
+        <div class="nav-buttons">
+            <button onclick="goToPage('index.html')">Home</button>
+            <button onclick="goToPage('information.html')">Information</button>
+            <button onclick="goToPage('contact.html')">Contact Us</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Mixed Method Research</h2>
+
+        <div class="consultant">
+            <img src="https://scontent.fmnl4-3.fna.fbcdn.net/v/t39.30808-6/480667079_557764823957003_6689300606185547881_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGpUpseffQ7bqrcvtw96dbrWcgvZIwiCMNZyC9kjCIIwxhN3pEWE_3iOKkTyzbZc5B3o_aek_Ogpi9Gjif5pEKt&_nc_ohc=NTAtm8PfhI4Q7kNvgF76xmI&_nc_oc=AdjWVRiqpnM15n9WfF3Kn-d7hHQS9kmMWiC9J0RyeZlaD3N9YCEDXlgTycr1MdBoh7W6gsJXVB8vobA1OqiHm_bR&_nc_zt=23&_nc_ht=scontent.fmnl4-3.fna&_nc_gid=AldUE0RocxmWtFEMDZr04Q&oh=00_AYErXfdo_6j51jR8wm4nE5N6u2vczGorKtGVkYftM3723Q&oe=67DE0733" alt="Consultant 1">
+            <h3>Emelyo Perez</h3>
+            <p>nyak nyak nyak nyak</p>
+            <button class="consult-button" onclick="openModal('Emelyo Perez')">Consult Now</button>
+        </div>
+
+        <div class="consultant">
+            <img src="https://scontent.fmnl4-2.fna.fbcdn.net/v/t39.30808-6/481234896_1104128564798753_7766329658419609279_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHfMIpIAHtT9oBEDV1l_52dLLYcnnHduLEsthyecd24sd2UnGiUZft4FDZRikHuAqhqBSNfhY7ZU8ioYrKU-bm-&_nc_ohc=ILeCjMax1PYQ7kNvgEYnc9o&_nc_oc=AdhUkb1Z-CIRGoM0E6KnMIoR-s7T2QdLP2XM-O45UbnOulUM5mfERsgykqxKfuswFvATNisMRERaoc0T3_aGDGAt&_nc_zt=23&_nc_ht=scontent.fmnl4-2.fna&_nc_gid=ktUmlAA6R5ZI9kqiCgygyQ&oh=00_AYE6Tk8H4ggLls80e1mQd0ArIUpqGMoJrwhoae7Lyrwr3Q&oe=67DDF5CC" alt="Consultant 2">
+            <h3>Paul Timpog</h3>
+            <p>Pogit gwapo at matalino</p>
+            <button class="consult-button" onclick="openModal('Paul Timpog')">Consult Now</button>
+        </div>
+
+        <div class="consultant">
+            <img src="https://scontent.fmnl4-1.fna.fbcdn.net/v/t39.30808-1/480669879_9550012758394047_7397003573507225397_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeEwBGAEsJw9ZbbX43r5G3_d2iLQAMkGXEfaItAAyQZcRwopjdfkqnZ7s_DhyNT8d590r-bNKSVn0jOQGFkc0fm0&_nc_ohc=rK1XZPG4scAQ7kNvgFrL7Jv&_nc_oc=Adju-6aUtqp7Hr1Xt8AfLLWewEF5fP99_NdrCg6N9G-oIswe0vJKKH5mXxIYYEbA0eSHJ16T8Vr9t_Jc6yxTB_3o&_nc_zt=24&_nc_ht=scontent.fmnl4-1.fna&_nc_gid=gnAu6xaoCL96Jkz_1O3d4A&oh=00_AYGRgxs8L--o3D6V9ZEUsVAb8jaf9d7mzAur8CxLlyMjoQ&oe=67DE0D2F" alt="Consultant 3">
+            <h3>Lianne Gueverra</h3>
+            <p>class president ng Tesla</p>
+            <button class="consult-button" onclick="openModal('Uwu')">Consult Now</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <p id="modal-text"></p>
+        <button class="confirm" onclick="redirectToMessenger()">Confirm</button>
+        <button class="cancel" onclick="closeModal()">Cancel</button>
+    </div>
+
+    <script>
+        let selectedConsultant = '';
+
+        function goToPage(url) {
+            window.location.href = url;
+        }
+
+        function openModal(name) {
+            selectedConsultant = name;
+            document.getElementById('modal-text').textContent = `Do you want to consult with ${name}?`;
+            const modal = document.getElementById('modal');
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        function redirectToMessenger() {
+            let fbPageId = '61573916655894';
+            let messengerLink = `https://m.me/${fbPageId}?text=Consulting%20with%20${encodeURIComponent(selectedConsultant)}`;
+            window.location.href = messengerLink;
+        }
+    </script>
+
+</body>
+</html>
