@@ -50,16 +50,92 @@
             background: black;
             color: white;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 400px;
+        }
+
+        .modal-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center everything */
+            gap: 15px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Adjust spacing between image and button */
+        }
+
+        .option img {
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+
+        .option button {
+            padding: 10px;
+            width: 150px;
+            border: none;
+            background: black;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .option button:hover {
+            background: gray;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="https://i.postimg.cc/wTLsCGtg/Blue-and-Orange-Modern-Welcome-Banner.png" alt="About Us Image" class="about-img">
         <h2>Welcome to Project Taco</h2>
-        <p>Project Taco is a website designed to help tapinac senior highschool students with their research and projects by giving them the ability to contact student
-            experts
-        </p>
-        <a href="homepage.html" class="get-started">Get Started</a>
+        <p>Project Taco is a website designed to help Tapinac Senior High School students with their schoolwork, research, and projects by giving them the ability to contact student experts.</p>
+        <button class="get-started" onclick="openModal()">Get Started</button>
     </div>
+
+    <div id="start-modal" class="modal">
+        <h3>Select the Type of Consultation</h3>
+        <div class="modal-options">
+            <div class="option">
+                <img src="Pictures/ResearchButton.jpg" alt="Research">
+                <button onclick="goToPage('homepage.html')">Research</button>
+            </div>
+            <div class="option">
+                <img src="Pictures/TheraphyButton.jpg" alt="Therapy">
+                <button onclick="goToPage('comingsoon.html')">Therapy</button>
+            </div>
+            <div class="option">
+                <img src="Pictures/Tutoring.jpg" alt="Tutoring">
+                <button onclick="goToPage('comingsoon.html')">Subject Tutoring</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("start-modal").style.display = "block";
+        }
+
+        function goToPage(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>
