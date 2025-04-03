@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HI SHUUU</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: black;
+      transition: background 1s ease-in-out;
+    }
+
+    #background-container {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/95f4a03c-3dae-4fac-bfd0-0c07c8902191/dg4j3z5-1ab97728-7f8c-49c1-9c56-d3b5bdcaa0f7.png/v1/fill/w_670,h_1192/__f2u__turtle_emoji_stickers_set_by_cartridgetastic_dg4j3z5-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzk1ZjRhMDNjLTNkYWUtNGZhYy1iZmQwLTBjMDdjODkwMjE5MVwvZGc0ajN6NS0xYWI5NzcyOC03ZjhjLTQ5YzEtOWM1Ni1kM2I1YmRjYWEwZjcucG5nIiwid2lkdGgiOiI8PTcyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.mvhiI1N0RK174TVbbqF64ztLiSKQMi9gVzy3a1q9u2w") no-repeat center center fixed;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    #login-section {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    input,
+    button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    #chat-container {
+      display: none;
+      width: 400px;
+      height: 500px;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      overflow-y: auto;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    .message {
+      max-width: 80%;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 10px;
+      font-size: 16px;
+      display: block;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      background: #f1f1f1;
+      text-align: left;
+      word-wrap: break-word;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .option {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      border: none;
+      text-align: center;
+      width: 80%;
+      transition: background 0.3s ease-in-out;
+    }
+
+    .option:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="background-container"></div>
+
+  <div id="login-section">
+    <h2>Enter Passcode (tawag ko sa pogi mong pusa, pwede din pusa ko, or ung penguin mong pusa)</h2>
+    <input type="password" id="passcode" placeholder="Enter passcode" />
+    <button onclick="checkPasscode()">Submit</button>
+  </div>
+
+  <div id="chat-container"></div>
+
+  <script>
+    function checkPasscode() {
+  const validPasscodes = ["kitler", "Kitler", "Mong", "mong", "ginger", "Ginger"];
+  const enteredPasscode = document.getElementById("passcode").value.toLowerCase();
+
+  const isValid = validPasscodes.some(pass => pass.toLowerCase() === enteredPasscode);
+
+  if (isValid) {
+    document.getElementById("login-section").style.display = "none";
+    document.getElementById("chat-container").style.display = "block";
+    startChatNovel();
+  } else {
+    alert("WRONGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG para kay shu lng to uwu");
+  }
+}
+
+    const messages = {
+      "1": { text: "Hiiii shuuuuuu", side: "left", next: "2" },
+      "2": {
+        text: "well want mo ba talaga mabasa? napaka haba non",
+        side: "left",
+        choices: [
+          { text: "oms", next: "3" },
+          { text: "ayoko", next: "4" }
+        ]
+      },
+      "3": {
+        text: "WELLLLL napaka Habaaaa to so ill cut it into parts~",
+        side: "left",
+        next: "5"
+      },
+      "4": { text: "nyak, dwag (eme refresh monalan page)", side: "left" },
+      "5": {
+        text: "so eto yung first part... wag ka macringe ah",
+        side: "left",
+        next: "6"
+      },
+      "6": {
+        text: "i wrote this when i woke up the next day from the last time na nagmeet tayo",
+        side: "left",
+        next: "7"
+      },
+      "7": {
+        text: "idkk so title nya na ginawa ko non is \"1421\"",
+        side: "left",
+        next: "8"
+      },
+      "8": {
+        text: "2-3 weeks, 14-21 days",
+        side: "left",
+        next: "9"
+      },
+      "9": {
+        text: "familiar? HAHAHHAHAHA yan prediction mo kung gano katagal until maka move on ako",
+        side: "left",
+        choices: [
+          { text: "kwento mona ung laman ng diary!", next: "10" }
+        ]
+      },
+      "10": {
+        text: "well eto yung first part (dont mind yung engrish ko its my writing style💅💅)",
+        side: "left",
+        next: "11"
+      },
+      "11": {
+        text: "2-3 weeks, 14 days to 21 days. One of the painful words you told me during the most comfortable and romantic moment I had with you. The night I was embracing you, keeping you all by myself. Our heads lay rest to our body. How I wish for the daylight to never come, but you killed me off your heart.)",
+        side: "left",
+        choices: [
+          { text: "Continue", next: "12" }
+        ]
+      },
+      "12": {
+        text: "Days have passed, trying hard to not get you off my heart. Slowly, I'm losing grip. Promises I made, slowly I break. I'm sorry, it looks like you were right about me.",
+        side: "left",
+        choices: [
+          { text: "Continue", next: "13" }
+        ]
+      },
+      "13": {
+        text: "well, ill explain narin so mas magets mo....",
+        side: "left",
+        next: "14"
+      },
+      "14": {
+        text: "Do you remember? When naguusap tayo sa chat na mention ko na magbibirthday na pinsan ko and may chance na uminom kami? HAHAHAHHAHA pinilit ko ung sarili ko uminom nyan 😭😭.. ayun bagsak inagaw ko kama ng pinsan ko that night",
+        side: "left",
+        choices: [
+          { text: "kapal ng muka", next: "15" }
+          
+        ]
+      },
+      "15": {
+        text: "anyways.....",
+        side: "left",
+        next: "16"
+      },
+      "16": {
+        text: "so eto yung next part, a few days has passed na",
+        side: "left",
+        next: "17"
+
+      },
+      "17": {
+        text: "This past week, I keep searching for you. Short instances of us seeing each other give spark and pain to myself. I wonder what version of me would have come if you didn’t kill me in your heart and we were still embracing under the lunar light. This coming version of me is not the version you shared that night with. I'm disappearing in my own mind, disappearing slowly with my feelings for you.",
+        side: "left",
+        choices: [
+          { text: "cringe mo nmn", next: "18" }
+          
+        ]
+      },
+      "18": {
+        text: "gsakdhkjsadsadsahld",
+        side: "left",
+        next: "19"
+
+
+    },
+      "19": {
+        text: "ang hassle nmn i code neto.... i lagay kona dare daretyo (sorry tamad)",
+        side: "left",
+        next: "20"
+
+      },
+      "20": {
+        text: "I'm an embarrassment; only a week has passed, but this is what is coming of me. I'm sorry, my love, for what version you may come to see in the future. I want you to know that I surely loved you from the bottom of my heart. Even though our time together was short, I was grateful that our paths crossed, and I’ll never regret what happened.",
+        side: "left",
+        choices: [
+          { text: "yuck", next: "21" }
+          
+        ]
+      },
+      "21": {
+        text: "My love, I wish you good luck on your path.",
+        side: "left",
+        next: "22",
+      },
+      "22": {
+        text: "Sincerely, The biggest snake of your life",
+        side: "left",
+        choices: [
+          { text: "tapos na?", next: "23" }
+          
+        ]
+      },
+      "23": {
+        text: "nopeeeeeeeeee",
+        side: "left",
+        next: "24",
+      },
+      "24": {
+        text: "mejo marupok ako dito",
+        side: "left",
+        choices: [
+          { text: "*// inarapan", next: "25" }
+          
+        ]
+      },
+      "25": {
+        text: "87th day,seemingly our gazes always meet, and it pulls back the snake youre afraid of, clear memories of our conversation and our time together playing in my brain sung by my heart. the moment we bump into each other we cant help but look at each ones eye. The eye of the stranger who you know everything about. Is this a sign? is something gonna happen again? i dont wanna know, im also afraid. I still havent moved on, the sweater which you gave back, still on the same plastic bag. my dear, some part of me believe that i can read you everytime our gazes meet. And the whole part of me want to believe onto something. Is that how it really ends? Did i actually let you go? i dont know, as a figure of you is inside me and it leashed my heart.",
+        side: "left",
+        choices: [
+          { text: "continue", next: "26" }
+          
+        ]
+      },
+      "26": {
+        text: "this next part, mejo na derail... mejo sabay sabay lahat kaya i guess nanging ganon asndsabhd",
+        side: "left",
+        choices: [
+          { text: "ookii", next: "27" }
+          
+        ]
+      },
+      "27": {
+        text: "I'm lost, i am in chaos, I can't hold myself together i wanna breakdown and cry but I've become null and dull. when did I become like this? have i killed myself? why am i still pretending even when everything is going shit. My feelings are fucked, my heart is fucked, even my mind is fucked.. everything is being thrown at the same time. the lost of love ones, the pressure or academics, the past relationships that still haunts me, and even issues within my relationship between my family. i dont want to exist in this world. all i wish is for a no tomorrow. Or a tomorrow where everything resolves by itself. I missed that peace with the night i shared with you in front of the sea. i actually want to not exist anymore. I didn't ask to be born in this world. but nothing will probably be resolved even if i disappear. It only proves that I'm truly a coward. suicide is not really a selfish act, its the people that holds you back that are selfish",
+        side: "left",
+        choices: [
+          { text: "te suicidal ka?", next: "28" }
+          
+          
+        ]
+      },
+      "28": {
+        text: "no, more or less perspective koyan sa buhay... madami pakong gusto makamit",
+        side: "left",
+        next: "29" ,
+          
+      },
+      "29": {
+        text: "anywayss if madaming typo or grammar errors.. hihi sorry dko na sya finix or inayos ",
+        side: "left",
+        choices: [
+          { text: "last part na tayo", next: "31" }
+          
+          
+        ]
+      },
+      "31": {
+        text: "I feel betrayed. You who i trusted, our sacred night which i only kept and treasured for myself. To tell not just to anyone but to one of my friends. I feel dull.",
+        side: "left",
+        choices: [
+          { text: ".....", next: "32" }
+          
+          
+        ]
+      },
+      "32": {
+        text: "na clear naman natin to kanina... kupal talaga ni ylber",
+        choices: [
+          { text: "yazzz", next: "33" }
+          
+          
+        ]
+      },
+      "33": {
+        text: "Dear love, i have moved on. After 116 days, I have cleared my mind. I have rested my soul. To the one I've truly loved, may you be safe to the path you are running towards. ",
+        choices: [
+          { text: "good job!", next: "36" }
+          
+          
+        ]
+      },
+      "36": {
+        text: "welllll eto lang nmn ung laman ng diary... about sa kanina, gumaan nadin pakiramdam ko knowing na misunderstanding lng ung sa part about sa mga sabe sabe... thank you have a good night rest teehee~ hope mag work kayo ni nueva ecija ",
+        side: "left",
+        next: "39" ,
+          
+      },
+      "39": {
+        text: "i will remove this na tmorrow when i wake up before going to school siguro... ill revert it sa original na consult site at baka may makakita ng iba. Tho i doubt na maaaccess nila to unless i check nila ung inspect elements, agian thank youuuuuuuuuuuuuu",
+        next: "40" ,
+          
+      },
+    }
+    function startChatNovel() {
+      showMessage("1");
+    }
+
+    function showMessage(messageId) {
+      const msg = messages[messageId];
+      if (msg) {
+        const chatContainer = document.getElementById("chat-container");
+        const messageDiv = document.createElement("div");
+        messageDiv.classList.add("message");
+        messageDiv.textContent = msg.text;
+        chatContainer.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        setTimeout(() => {
+          messageDiv.style.opacity = "1";
+          messageDiv.style.transform = "translateY(0)";
+        }, 100);
+
+        if (msg.choices) {
+          setTimeout(() => showOptions(msg.choices), 1000);
+        } else if (msg.next) {
+          setTimeout(() => showMessage(msg.next), 2000);
+        }
+      }
+    }
+
+    function showOptions(choices) {
+      const chatContainer = document.getElementById("chat-container");
+      const optionsDiv = document.createElement("div");
+      optionsDiv.classList.add("options");
+
+      choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.classList.add("option");
+        button.textContent = choice.text;
+        button.onclick = function () {
+          optionsDiv.style.opacity = "0";
+          optionsDiv.style.transform = "translateY(10px)";
+          setTimeout(() => {
+            optionsDiv.remove();
+            showMessage(choice.next);
+          }, 500);
+        };
+        optionsDiv.appendChild(button);
+      });
+
+      chatContainer.appendChild(optionsDiv);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+
+      setTimeout(() => {
+        optionsDiv.style.opacity = "1";
+        optionsDiv.style.transform = "translateY(0)";
+      }, 100);
+    }
+  </script>
+</body>
+</html>
