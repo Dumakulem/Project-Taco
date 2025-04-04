@@ -196,11 +196,21 @@
 
     <div id="start-modal" class="modal">
         <h3>Select the Type of Consultation</h3>
+        <div class="modal-options">
+            <div class="option">
+                <img src="Pictures/ResearchButton.jpg" alt="Research">
+                <button onclick="goToPage('homepage.html')">Research</button>
+            </div>
+            <div class="option">
+                <img src="Pictures/TheraphyButton.jpg" alt="Therapy">
+                <button onclick="goToPage('comingsoon.html')">Therapy</button>
+            </div>
             <div class="option">
                 <img src="Pictures/Tutoring.jpg" alt="Tutoring">
-                <button onclick="goToPage('Cassie.html')">Para kay Shu</button>
+                <button onclick="goToPage('comingsoon.html')">Subject Tutoring</button>
             </div>
         </div>
+        <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
 
     <script>
